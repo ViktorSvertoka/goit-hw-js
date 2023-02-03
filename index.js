@@ -1,45 +1,45 @@
-// Завдання 11/48
-// Заміни оголошення функції filterArray() і колбек для методу forEach() на стрілочні функції.
+// Завдання 12/48
+// Заміни оголошення функції getCommonElements() і колбек для методу forEach() на стрілочні функції.
 
-// Оголошена змінна filterArray
-// Змінній filterArray присвоєна стрілочна функція з параметрами (numbers, value)
-// Для перебирання масиву numbers використаний метод forEach
+// Оголошена змінна getCommonElements.
+// Змінній getCommonElements присвоєна стрілочна функція з параметрами (firstArray, secondArray)
+// Для перебирання масиву firstArray використаний метод forEach
 // Колбек для методу forEach - це стрілочна функція
-// Виклик функції filterArray([1, 2, 3, 4, 5], 3) повертає [4, 5]
-// Виклик функції filterArray([1, 2, 3, 4, 5], 4) повертає [5]
-// Виклик функції filterArray([1, 2, 3, 4, 5], 5) повертає []
-// Виклик функції filterArray([12, 24, 8, 41, 76], 38) повертає [41, 76]
-// Виклик функції filterArray([12, 24, 8, 41, 76], 20) повертає [24, 41, 76]
+// Виклик getCommonElements([1, 2, 3], [2, 4]) повертає [2]
+// Виклик getCommonElements([1, 2, 3], [2, 1, 17, 19]) повертає [1, 2]
+// Виклик getCommonElements([24, 12, 27, 3], [12, 8, 3, 36, 27]) повертає [12, 27, 3]
+// Виклик getCommonElements([10, 20, 30, 40], [4, 30, 17, 10, 40]) повертає [10, 30, 40]
+// Виклик getCommonElements([1, 2, 3], [10, 20, 30]) повертає []
 // Виклик функції з випадковими, але валідними аргументами, повертає правильне значення
 
 // Задача
 
 // Change code below this line
-function filterArray(numbers, value) {
-  const filteredNumbers = [];
+function getCommonElements(firstArray, secondArray) {
+  const commonElements = [];
 
-  numbers.forEach(function (number) {
-    if (number > value) {
-      filteredNumbers.push(number);
+  firstArray.forEach(function (element) {
+    if (secondArray.includes(element)) {
+      commonElements.push(element);
     }
   });
 
   // Change code above this line
-  return filteredNumbers;
+  return commonElements;
 }
 
 //Решение
 
 // Change code below this line
-const filterArray = (numbers, value) => {
-  const filteredNumbers = [];
+const getCommonElements = (firstArray, secondArray) => {
+  const commonElements = [];
 
-  numbers.forEach((number) => {
-    if (number > value) {
-      filteredNumbers.push(number);
+  firstArray.forEach((element) => {
+    if (secondArray.includes(element)) {
+      commonElements.push(element);
     }
   });
 
   // Change code above this line
-  return filteredNumbers;
+  return commonElements;
 };
