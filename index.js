@@ -1,35 +1,45 @@
-// Завдання 10/48
-// Виконай рефакторинг функції calculateTotalPrice(orderedItems), замінивши її оголошення на стрілочну функцію. Заміни колбек-функцію, передану в метод forEach(), на стрілочну функцію.
+// Завдання 11/48
+// Заміни оголошення функції filterArray() і колбек для методу forEach() на стрілочні функції.
 
-// Оголошена змінна calculateTotalPrice
-// Змінній calculateTotalPrice присвоєна стрілочна функція з параметром (orderedItems)
-// Для перебирання масиву orderedItems використаний метод forEach
+// Оголошена змінна filterArray
+// Змінній filterArray присвоєна стрілочна функція з параметрами (numbers, value)
+// Для перебирання масиву numbers використаний метод forEach
 // Колбек для методу forEach - це стрілочна функція
-// Виклик функції calculateTotalPrice([12, 85, 37, 4]) повертає 138
-// Виклик функції calculateTotalPrice([164, 48, 291]) повертає 503
-// Виклик функції calculateTotalPrice([412, 371, 94, 63, 176]) повертає 1116
+// Виклик функції filterArray([1, 2, 3, 4, 5], 3) повертає [4, 5]
+// Виклик функції filterArray([1, 2, 3, 4, 5], 4) повертає [5]
+// Виклик функції filterArray([1, 2, 3, 4, 5], 5) повертає []
+// Виклик функції filterArray([12, 24, 8, 41, 76], 38) повертає [41, 76]
+// Виклик функції filterArray([12, 24, 8, 41, 76], 20) повертає [24, 41, 76]
 // Виклик функції з випадковими, але валідними аргументами, повертає правильне значення
 
-//Задача
+// Задача
 
 // Change code below this line
-function calculateTotalPrice(orderedItems) {
-  let totalPrice = 0;
+function filterArray(numbers, value) {
+  const filteredNumbers = [];
 
-  orderedItems.forEach(function (item) {
-    totalPrice += item;
+  numbers.forEach(function (number) {
+    if (number > value) {
+      filteredNumbers.push(number);
+    }
   });
 
-  return totalPrice;
+  // Change code above this line
+  return filteredNumbers;
 }
-// Change code above this line
 
 //Решение
 
-const calculateTotalPrice = (orderedItems) => {
-  let totalPrice = 0;
-  orderedItems.forEach((item) => {
-    totalPrice += item;
+// Change code below this line
+const filterArray = (numbers, value) => {
+  const filteredNumbers = [];
+
+  numbers.forEach((number) => {
+    if (number > value) {
+      filteredNumbers.push(number);
+    }
   });
-  return totalPrice;
+
+  // Change code above this line
+  return filteredNumbers;
 };
