@@ -1,11 +1,11 @@
-// Завдання 15/48
-// Використовуючи метод map(), зроби так, щоб у змінній titles вийшов масив назв книг (властивість title) з усіх об'єктів масиву books.
+// Завдання 16/48
+// Використовуючи метод flatMap(), зроби так, щоб у змінній genres вийшов масив усіх жанрів книг (властивість genres) з масиву книг books.
 
 // Оголошена змінна books
-// Значення змінної books - це масив
-// Оголошена змінна titles
-// Значення змінної titles - це масив ["The Last Kingdom", "Beside Still Waters", "The Dream of a Ridiculous Man", "Redder Than Blood", "Enemy of God"]
-// Для перебирання масиву books використовується метод map() як чиста функція
+// Значення змінної books - це масив об'єктів
+// Оголошена змінна genres
+// Значення змінної genres - це масив [ "adventure", "history", "fiction", "horror", "mysticism" ]
+// Для перебирання масиву books використовується метод flatMap()
 
 //Задача
 
@@ -13,24 +13,22 @@ const books = [
   {
     title: "The Last Kingdom",
     author: "Bernard Cornwell",
-    rating: 8.38,
+    genres: ["adventure", "history"],
   },
   {
     title: "Beside Still Waters",
     author: "Robert Sheckley",
-    rating: 8.51,
+    genres: ["fiction"],
   },
   {
-    title: "The Dream of a Ridiculous Man",
-    author: "Fyodor Dostoevsky",
-    rating: 7.75,
+    title: "Redder Than Blood",
+    author: "Tanith Lee",
+    genres: ["horror", "mysticism"],
   },
-  { title: "Redder Than Blood", author: "Tanith Lee", rating: 7.94 },
-  { title: "Enemy of God", author: "Bernard Cornwell", rating: 8.67 },
 ];
 // Change code below this line
 
-const titles = books;
+const genres = books;
 
 //Решение
 
@@ -38,21 +36,19 @@ const books = [
   {
     title: "The Last Kingdom",
     author: "Bernard Cornwell",
-    rating: 8.38,
+    genres: ["adventure", "history"],
   },
   {
     title: "Beside Still Waters",
     author: "Robert Sheckley",
-    rating: 8.51,
+    genres: ["fiction"],
   },
   {
-    title: "The Dream of a Ridiculous Man",
-    author: "Fyodor Dostoevsky",
-    rating: 7.75,
+    title: "Redder Than Blood",
+    author: "Tanith Lee",
+    genres: ["horror", "mysticism"],
   },
-  { title: "Redder Than Blood", author: "Tanith Lee", rating: 7.94 },
-  { title: "Enemy of God", author: "Bernard Cornwell", rating: 8.67 },
 ];
 // Change code below this line
 
-const titles = books.map((book) => book.title);
+const genres = books.flatMap((book) => book.genres);
