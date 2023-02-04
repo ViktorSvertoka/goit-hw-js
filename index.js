@@ -1,18 +1,26 @@
-// Завдання 18/48
-// Доповни функцію getUserEmails(users) таким чином, щоб вона повертала масив поштових адрес користувачів (властивість email) з масиву об'єктів в параметрі users.
+// Завдання 19/48
+// Доповни код таким чином, щоб у змінній evenNumbers утворився масив парних чисел з масиву numbers, а в змінній oddNumbers - масив непарних. Обов'язково використовуй метод filter().
 
-// Оголошена змінна getUserNames
-// Змінній getUserNames присвоєна стрілочна функція з параметром (users)
-// Для перебирання параметра users використовується метод map()
-// Виклик функції із зазначеним масивом користувачів повертає масив ["moorehensley@indexia.com", "sharlenebush@tubesys.com", "rossvazquez@xinware.com", "elmahead@omatom.com", "careybarr@nurali.com", "blackburndotson@furnigeer.com", "shereeanthony@kog.com"]
-// Виклик функції з випадковими, але валідними аргументами, повертає правильне значення
+// Оголошена змінна numbers
+// Значення змінної numbers - це масив [17, 24, 82, 61, 36, 18, 47, 52, 73]
+// Оголошена змінна evenNumbers
+// Значення змінної evenNumbers - це масив [24, 82, 36, 18, 52]
+// Оголошена змінна oddNumbers
+// Значення змінної oddNumbers - це масив [17, 61, 47, 73]
+// Для перебирання масиву numbers використаний метод filter()
 
 //Задача
 
+const numbers = [17, 24, 82, 61, 36, 18, 47, 52, 73];
 // Change code below this line
-const getUserEmails = (users) => {};
-// Change code above this line
 
-//Решение
+const evenNumbers = numbers;
+const oddNumbers = numbers;
 
-const getUserEmails = (users) => users.map((user) => user.email);
+// Решение
+
+const numbers = [17, 24, 82, 61, 36, 18, 47, 52, 73];
+// Change code below this line
+
+const evenNumbers = numbers.filter((number) => number % 2 === 0);
+const oddNumbers = numbers.filter((number) => number % 2 !== 0);
