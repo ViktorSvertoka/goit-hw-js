@@ -1,54 +1,17 @@
-// Завдання 16/48
-// Використовуючи метод flatMap(), зроби так, щоб у змінній genres вийшов масив усіх жанрів книг (властивість genres) з масиву книг books.
+// Доповни функцію getUserNames(users) таким чином, щоб вона повертала масив імен користувачів (властивість name) з масиву об'єктів в параметрі users.
 
-// Оголошена змінна books
-// Значення змінної books - це масив об'єктів
-// Оголошена змінна genres
-// Значення змінної genres - це масив [ "adventure", "history", "fiction", "horror", "mysticism" ]
-// Для перебирання масиву books використовується метод flatMap()
+// Оголошена змінна getUserNames
+// Змінній getUserNames присвоєна стрілочна функція з параметром (users).
+// Для перебирання параметра users використовується метод map()
+// Виклик функції із зазначеним масивом користувачів повертає масив ["Moore Hensley", "Sharlene Bush", "Ross Vazquez", "Elma Head", "Carey Barr", "Blackburn Dotson", "Sheree Anthony"]
+// Виклик функції з випадковими, але валідними аргументами, повертає правильне значення
 
 //Задача
 
-const books = [
-  {
-    title: "The Last Kingdom",
-    author: "Bernard Cornwell",
-    genres: ["adventure", "history"],
-  },
-  {
-    title: "Beside Still Waters",
-    author: "Robert Sheckley",
-    genres: ["fiction"],
-  },
-  {
-    title: "Redder Than Blood",
-    author: "Tanith Lee",
-    genres: ["horror", "mysticism"],
-  },
-];
 // Change code below this line
-
-const genres = books;
+const getUserNames = (users) => {};
+// Change code above this line
 
 //Решение
 
-const books = [
-  {
-    title: "The Last Kingdom",
-    author: "Bernard Cornwell",
-    genres: ["adventure", "history"],
-  },
-  {
-    title: "Beside Still Waters",
-    author: "Robert Sheckley",
-    genres: ["fiction"],
-  },
-  {
-    title: "Redder Than Blood",
-    author: "Tanith Lee",
-    genres: ["horror", "mysticism"],
-  },
-];
-// Change code below this line
-
-const genres = books.flatMap((book) => book.genres);
+const getUserNames = (users) => users.map((user) => user.name);
