@@ -1,26 +1,59 @@
-// Завдання 19/48
-// Доповни код таким чином, щоб у змінній evenNumbers утворився масив парних чисел з масиву numbers, а в змінній oddNumbers - масив непарних. Обов'язково використовуй метод filter().
+// Доповни код таким чином, щоб у змінній allGenres був масив всіх жанрів книг (властивість genres) з масиву books, а у змінній uniqueGenres - масив унікальних жанрів, без повторень.
 
-// Оголошена змінна numbers
-// Значення змінної numbers - це масив [17, 24, 82, 61, 36, 18, 47, 52, 73]
-// Оголошена змінна evenNumbers
-// Значення змінної evenNumbers - це масив [24, 82, 36, 18, 52]
-// Оголошена змінна oddNumbers
-// Значення змінної oddNumbers - це масив [17, 61, 47, 73]
-// Для перебирання масиву numbers використаний метод filter()
+// Оголошена змінна books
+// Значення змінної books - це масив об'єктів
+// Оголошена змінна allGenres
+// Значення змінної allGenres - це масив ["adventure", "history", "fiction", "mysticism", "horror", "mysticism", "adventure"]
+// Оголошена змінна uniqueGenres
+// Значення змінної uniqueGenres - це масив ["adventure", "history", "fiction", "mysticism", "horror"]
+// Для обчислення значення змінної allGenders використаний метод flatMap()
+// Для обчислення значення змінної uniqueGenres використаний метод filter()
 
 //Задача
 
-const numbers = [17, 24, 82, 61, 36, 18, 47, 52, 73];
+const books = [
+  {
+    title: "The Last Kingdom",
+    author: "Bernard Cornwell",
+    genres: ["adventure", "history"],
+  },
+  {
+    title: "Beside Still Waters",
+    author: "Robert Sheckley",
+    genres: ["fiction", "mysticism"],
+  },
+  {
+    title: "Redder Than Blood",
+    author: "Tanith Lee",
+    genres: ["horror", "mysticism", "adventure"],
+  },
+];
 // Change code below this line
-
-const evenNumbers = numbers;
-const oddNumbers = numbers;
+const allGenres = books;
+const uniqueGenres = allGenres;
 
 // Решение
 
-const numbers = [17, 24, 82, 61, 36, 18, 47, 52, 73];
+const books = [
+  {
+    title: "The Last Kingdom",
+    author: "Bernard Cornwell",
+    genres: ["adventure", "history"],
+  },
+  {
+    title: "Beside Still Waters",
+    author: "Robert Sheckley",
+    genres: ["fiction", "mysticism"],
+  },
+  {
+    title: "Redder Than Blood",
+    author: "Tanith Lee",
+    genres: ["horror", "mysticism", "adventure"],
+  },
+];
 // Change code below this line
 
-const evenNumbers = numbers.filter((number) => number % 2 === 0);
-const oddNumbers = numbers.filter((number) => number % 2 !== 0);
+const allGenres = books.flatMap((book) => book.genres);
+const uniqueGenres = allGenres.filter(
+  (genre, index, genres) => genres.indexOf(genre) === index
+);
