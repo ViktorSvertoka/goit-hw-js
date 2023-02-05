@@ -1,20 +1,25 @@
-// Завдання 24/48
-// Доповни функцію getUsersWithFriend(users, friendName) таким чином, щоб вона повертала масив користувачів, у яких є один з ім'ям в параметрі friendName. Масив друзів користувача зберігається у властивості friends.
+// Завдання 25/48
+// Доповни функцію getFriends(users) таким чином, щоб вона повертала масив друзів всіх користувачів (властивість friends). У декількох користувачів можуть бути однакові друзі, зроби так, щоб масив, що повертається, не містив повторень.
 
-// Оголошена змінна getUsersWithFriend
-// Змінній getUsersWithFriend присвоєна стрілочна функція з параметрами (users, friendName)
-// Для перебирання параметра users використовується метод filter()
-// Якщо значення параметра friendName - це рядок "Briana Decker", функція повертає масив об'єктів користувачів з іменами Sharlene Bush і Sheree Anthony
-// Якщо значення параметра friendName - це рядок "Goldie Gentry", функція повертає масив об'єктів користувачів з іменами Elma Head і Sheree Anthony
-// Якщо значення параметра friendName - це рядок "Adrian Cross", функція повертає порожній масив
+// Оголошена змінна getFriends
+// Змінній getFriends присвоєна стрілочна функція з параметром (users)
+// Виклик функції із зазначеним масивом користувачів повертає масив ["Sharron Pace", "Briana Decker", "Marilyn Mcintosh", "Padilla Garrison", "Naomi Buckner", "Goldie Gentry", "Aisha Tran", "Jordan Sampson", "Eddie Strong", "Jacklyn Lucas", "Linda Chapman"]
 // Виклик функції з випадковими, але валідними аргументами, повертає правильне значення
 
 //Задача
 
-const getUsersWithFriend = (users, friendName) => {};
+const getFriends = (users) => {};
 
 //Решение
 
-const getUsersWithFriend = (users, friendName) => {
-  return users.filter((user) => user.friends.includes(friendName));
+const getFriends = (users) => {
+  let friends = [];
+  users.forEach((user) => {
+    user.friends.forEach((friend) => {
+      if (!friends.includes(friend)) {
+        friends.push(friend);
+      }
+    });
+  });
+  return friends;
 };
