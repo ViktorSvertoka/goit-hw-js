@@ -1,45 +1,35 @@
-// Завдання 34/48
-// Ігровому сервісу необхідний функціонал підрахунку середнього часу, проведеного в іграх. Доповни код таким чином, щоб у змінній totalPlayTime вийшло загальний ігровий час з масиву playtimes.
+// Завдання 35/48
+// Нашому сервісу необхідно розрахувати середній час, проведений в одній грі для кожного гравця, і отримати загальну суму цих значень часу. Розрахувати час для кожного з гравців можна, розділивши його час (властивість playtime) на кількість ігор (властивість gamesPlayed).
 
 // Оголошена змінна players
-// Значення змінної players - це об'єкт гравців з ігровим часом кожного
-// Оголошена змінна playtimes
-// Значення змінної playtimes - це масив [1270, 468, 710, 244]
-// Оголошена змінна totalPlayTime
-// Значення змінної totalPlayTime - це число 2692
-// Для перебирання масиву playtimes використовується метод reduce()
-// Оголошена змінна averagePlayTime
-// Значення змінної averagePlayTime - це число 673
+// Значення змінної players - це масив об'єктів гравців
+// Оголошена змінна totalAveragePlaytimePerGame
+// Значення змінної totalAveragePlaytimePerGame - це число 1023
+// Для перебирання масиву players використовується метод reduce()
 
 //Задача
 
-const players = {
-  mango: 1270,
-  poly: 468,
-  ajax: 710,
-  kiwi: 244,
-};
-const playtimes = Object.values(players); // [1270, 468, 710, 244]
+const players = [
+  { name: "Mango", playtime: 1270, gamesPlayed: 4 },
+  { name: "Poly", playtime: 469, gamesPlayed: 2 },
+  { name: "Ajax", playtime: 690, gamesPlayed: 3 },
+  { name: "Kiwi", playtime: 241, gamesPlayed: 1 },
+];
 // Change code below this line
 
-const totalPlayTime = playtimes;
-
-// Change code above this line
-const averagePlayTime = totalPlayTime / playtimes.length;
+const totalAveragePlaytimePerGame = players;
 
 //Решение
 
-const players = {
-  mango: 1270,
-  poly: 468,
-  ajax: 710,
-  kiwi: 244,
-};
-const playtimes = Object.values(players); // [1270, 468, 710, 244]
+const players = [
+  { name: "Mango", playtime: 1270, gamesPlayed: 4 },
+  { name: "Poly", playtime: 469, gamesPlayed: 2 },
+  { name: "Ajax", playtime: 690, gamesPlayed: 3 },
+  { name: "Kiwi", playtime: 241, gamesPlayed: 1 },
+];
+// Change code below this line
 
-const totalPlayTime = playtimes.reduce(
-  (totalTime, player) => totalTime + player,
+const totalAveragePlaytimePerGame = players.reduce(
+  (totalTime, player) => totalTime + player.playtime / player.gamesPlayed,
   0
 );
-
-const averagePlayTime = totalPlayTime / playtimes.length;
