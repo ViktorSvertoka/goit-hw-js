@@ -1,17 +1,17 @@
-// Завдання 36/48
-// Доповни функцію calculateTotalBalance(users) таким чином, щоб вона рахувала і повертала суму всіх коштів (властивість balance), які зберігають користувачі з масиву users.
+// Завдання 37/48
+// Доповни функцію getTotalFriendCount(users) таким чином, щоб вона рахувала і повертала загальну кількість друзів (властивість friends) усіх користувачів з масиву users.
 
-// Оголошена змінна calculateTotalBalance
-// Змінній calculateTotalBalance присвоєна стрілочна функція з параметром (users)
+// Оголошена змінна getTotalFriendCount
+// Змінній getTotalFriendCount присвоєна стрілочна функція з параметром (users)
 // Для перебирання параметра users використовується метод reduce()
-// Виклик функції із зазначеним масивом користувачів повертає число 20916
+// Виклик функції із зазначеним масивом користувачів повертає число 14
 // Виклик функції з випадковими, але валідними аргументами, повертає правильне значення
 
 //Задача
 
-const calculateTotalBalance = (users) => {};
+const getTotalFriendCount = (users) => {};
 
 //Решение
 
-const calculateTotalBalance = (users) =>
-  users.reduce((total, user) => total + user.balance, 0);
+const getTotalFriendCount = (users) =>
+  users.reduce((total, user) => total + user.friends.length, 0);
