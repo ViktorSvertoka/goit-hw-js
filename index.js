@@ -1,83 +1,66 @@
-// Завдання 2/20
-// Перед звільненням розробник зламав вихідний код управління акаунтами користувачів нашого сервісу доставки їжі. Виконай рефакторинг методів об'єкта customer, розставивши відсутні this під час звернення до властивостей об'єкта.
+// Завдання 3/20
+// Тестувальники знайшли баги в коді сервісу зберігання історії замовлень їжі. Тобі необхідно виправити їх, правильно розставивши this в методах об'єкта historyService, щоб методи почали працювати правильно.
 
-// Після оголошення об'єкта ми додали виклики методів у тій послідовності, в якій твій код перевірятимуть тести. Будь ласка, нічого там не змінюй.
-
-// Оголошена змінна customer
-// Значення змінної customer - це об'єкт з властивостями і методами
-// Виклик customer.getDiscount() повертає поточне значення властивості discount
-// Виклик customer.setDiscount(0.15) оновлює значення властивості discount
-// Виклик customer.getBalance() повертає поточне значення властивості balance.
-// Виклик customer.getOrders() повертає поточне значення властивості orders
-// Виклик customer.addOrder(5000, "Steak") додає "Steak" в масив значень властивості orders і оновлює баланс
-// Метод getBalance об'єкта customer використовує this
-// Метод getDiscount об'єкта customer використовує this
-// Метод setDiscount об'єкта customer використовує this
-// Метод getOrders об'єкта customer використовує this
-// Метод addOrder об'єкта customer використовує this
+// Оголошена змінна historyService
+// Значення змінної historyService - це об'єкт з вихідними властивостями та методами
+// Виклик historyService.getOrdersLog() повертає рядок з переліком даних всіх замовлень з властивості orders
+// Виклик historyService.getEmails() повертає масив всіх унікальних поштових адрес з властивості orders
+// Виклик historyService.getOrdersByEmail("solomon@topmail.net") повертає [{ email: "solomon@topmail.net", dish: "Burger" }, { email: "solomon@topmail.net", dish: "Apple pie" }]
+// Виклик historyService.getOrdersByEmail("artemis@coldmail.net") повертає [{ email: "artemis@coldmail.net", dish: "Pizza" }]
+// Метод getOrdersLog об'єкта historyService використовує this
+// Метод getEmails об'єкта historyService використовує this
+// Метод getOrdersByEmail об'єкта historyService використовує this
 
 // Задача
 
-const customer = {
-  username: "Mango",
-  balance: 24000,
-  discount: 0.1,
-  orders: ["Burger", "Pizza", "Salad"],
+const historyService = {
+  orders: [
+    { email: "jacob@hotmail.com", dish: "Burrito" },
+    { email: "solomon@topmail.net", dish: "Burger" },
+    { email: "artemis@coldmail.net", dish: "Pizza" },
+    { email: "solomon@topmail.net", dish: "Apple pie" },
+    { email: "jacob@hotmail.com", dish: "Taco" },
+  ],
   // Change code below this line
-  getBalance() {
-    return balance;
+  getOrdersLog() {
+    return orders
+      .map((order) => `email: ${order.email} dish: ${order.dish}`)
+      .join(" - ");
   },
-  getDiscount() {
-    return discount;
+  getEmails() {
+    const emails = orders.map((order) => order.email);
+    const uniqueEmails = new Set(emails);
+    return [...uniqueEmails];
   },
-  setDiscount(value) {
-    discount = value;
-  },
-  getOrders() {
-    return orders;
-  },
-  addOrder(cost, order) {
-    balance -= cost - cost * discount;
-    orders.push(order);
+  getOrdersByEmail(email) {
+    return orders.filter((order) => order.email === email);
   },
   // Change code above this line
 };
-
-customer.setDiscount(0.15);
-console.log(customer.getDiscount()); // 0.15
-customer.addOrder(5000, "Steak");
-console.log(customer.getBalance()); // 19750
-console.log(customer.getOrders()); // ["Burger", "Pizza", "Salad", "Steak"]
 
 // Решение
 
-const customer = {
-  username: "Mango",
-  balance: 24000,
-  discount: 0.1,
-  orders: ["Burger", "Pizza", "Salad"],
+const historyService = {
+  orders: [
+    { email: "jacob@hotmail.com", dish: "Burrito" },
+    { email: "solomon@topmail.net", dish: "Burger" },
+    { email: "artemis@coldmail.net", dish: "Pizza" },
+    { email: "solomon@topmail.net", dish: "Apple pie" },
+    { email: "jacob@hotmail.com", dish: "Taco" },
+  ],
   // Change code below this line
-  getBalance() {
-    return this.balance;
+  getOrdersLog() {
+    return this.orders
+      .map((order) => `email: ${order.email} dish: ${order.dish}`)
+      .join(" - ");
   },
-  getDiscount() {
-    return this.discount;
+  getEmails() {
+    const emails = this.orders.map((order) => order.email);
+    const uniqueEmails = new Set(emails);
+    return [...uniqueEmails];
   },
-  setDiscount(value) {
-    this.discount = value;
-  },
-  getOrders() {
-    return this.orders;
-  },
-  addOrder(cost, order) {
-    this.balance -= cost - cost * this.discount;
-    this.orders.push(order);
+  getOrdersByEmail(email) {
+    return this.orders.filter((order) => order.email === email);
   },
   // Change code above this line
 };
-
-customer.setDiscount(0.15);
-console.log(customer.getDiscount()); // 0.15
-customer.addOrder(5000, "Steak");
-console.log(customer.getBalance()); // 19750
-console.log(customer.getOrders()); // ["Burger", "Pizza", "Salad", "Steak"]
