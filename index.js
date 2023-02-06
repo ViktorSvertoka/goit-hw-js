@@ -1,40 +1,83 @@
-// Завдання 40/48
-// Онлайн бібіліотеці необхідно відображати книги, відсортовані за автором, в алфавітному і зворотному алфавітному порядку. Доповни код таким чином, щоб у змінній authorsInAlphabetOrder вийшла копія масиву authors, відсортована за алфавітом, а у змінній authorsInReversedOrder - копія, відсортована у зворотному алфавітному порядку.
+// Доповни код таким чином, щоб:
 
-// Оголошена змінна authors
-// Значення змінної authors - це масив ["Tanith Lee", "Bernard Cornwell", "Robert Sheckley", "Fyodor Dostoevsky", "Howard Lovecraft"]
-// Оголошена змінна authorsInAlphabetOrder
-// Значення змінної authorsInAlphabetOrder - це масив ["Bernard Cornwell", "Fyodor Dostoevsky", "Howard Lovecraft", "Robert Sheckley", "Tanith Lee"]
-// Оголошена змінна authorsInReversedOrder
-// Значення змінної authorsInReversedOrder - це масив ["Tanith Lee", "Robert Sheckley", "Howard Lovecraft", "Fyodor Dostoevsky", "Bernard Cornwell"]
-// Використаний метод sort()
+// У змінній sortedByAuthorName вийшов масив книг, відсортований за ім'ям автора в алфавітному порядку.
+// У змінній sortedByReversedAuthorName вийшов масив книг, відсортований за ім'ям автора у зворотному алфавітному порядку.
+// У змінній sortedByAscendingRating вийшов масив книг, відсортований за зростанням рейтингу.
+// У змінній sortedByDescentingRating вийшов масив книг, відсортований за спаданням рейтингу.
+// Оголошена змінна books
+// Значення змінної books - це вихідний масив об'єктів книг
+// Оголошена змінна sortedByAuthorName
+// Значення змінної sortedByAuthorName - це масив книг, відсортований за ім'ям автора в алфавітному порядку
+// Оголошена змінна sortedByReversedAuthorName
+// Значення змінної sortedByReversedAuthorName - це масив книг, відсортований за ім'ям автора у зворотному алфавітному порядку
+// Оголошена змінна sortedByAscendingRating
+// Значення змінної sortedByAscendingRating - це масив книг, відсортований за зростанням рейтингу
+// Оголошена змінна sortedByDescentingRating
+// Значення змінної sortedByDescentingRating - це масив книг, відсортований за спаданням рейтингу
+// Для перебирання масиву books використовується метод sort()
 
-//Задача
+// Задача
 
-const authors = [
-  "Tanith Lee",
-  "Bernard Cornwell",
-  "Robert Sheckley",
-  "Fyodor Dostoevsky",
-  "Howard Lovecraft",
+const books = [
+  {
+    title: "The Last Kingdom",
+    author: "Bernard Cornwell",
+    rating: 8.38,
+  },
+  {
+    title: "Beside Still Waters",
+    author: "Robert Sheckley",
+    rating: 8.51,
+  },
+  {
+    title: "The Dream of a Ridiculous Man",
+    author: "Fyodor Dostoevsky",
+    rating: 7.75,
+  },
+  { title: "Redder Than Blood", author: "Tanith Lee", rating: 7.94 },
+  { title: "Enemy of God", author: "Bernard Cornwell", rating: 8.67 },
 ];
 // Change code below this line
 
-const authorsInAlphabetOrder = authors;
+const sortedByAuthorName = books;
 
-const authorsInReversedOrder = authors;
+const sortedByReversedAuthorName = books;
 
-//Решение
+const sortedByAscendingRating = books;
 
-const authors = [
-  "Tanith Lee",
-  "Bernard Cornwell",
-  "Robert Sheckley",
-  "Fyodor Dostoevsky",
-  "Howard Lovecraft",
+const sortedByDescentingRating = books;
+
+// Решение
+
+const books = [
+  {
+    title: "The Last Kingdom",
+    author: "Bernard Cornwell",
+    rating: 8.38,
+  },
+  {
+    title: "Beside Still Waters",
+    author: "Robert Sheckley",
+    rating: 8.51,
+  },
+  {
+    title: "The Dream of a Ridiculous Man",
+    author: "Fyodor Dostoevsky",
+    rating: 7.75,
+  },
+  { title: "Redder Than Blood", author: "Tanith Lee", rating: 7.94 },
+  { title: "Enemy of God", author: "Bernard Cornwell", rating: 8.67 },
 ];
 // Change code below this line
 
-const authorsInAlphabetOrder = [...authors].sort((a, b) => a.localeCompare(b));
+const sortedByAuthorName = [...books].sort((a, b) =>
+  a.author.localeCompare(b.author)
+);
 
-const authorsInReversedOrder = [...authors].sort((a, b) => b.localeCompare(a));
+const sortedByReversedAuthorName = [...books].sort((a, b) =>
+  b.author.localeCompare(a.author)
+);
+
+const sortedByAscendingRating = [...books].sort((a, b) => a.rating - b.rating);
+
+const sortedByDescentingRating = [...books].sort((a, b) => b.rating - a.rating);
