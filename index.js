@@ -1,49 +1,83 @@
-// Завдання 1/20
-// Виконай рефакторинг методів об'єкта pizzaPalace, розставивши відсутні this в місцях звернення до властивостей і методів об'єкта.
+// Завдання 2/20
+// Перед звільненням розробник зламав вихідний код управління акаунтами користувачів нашого сервісу доставки їжі. Виконай рефакторинг методів об'єкта customer, розставивши відсутні this під час звернення до властивостей об'єкта.
 
-// Метод checkPizza об'єкта pizzaPalace використовує this.
-// Метод order об'єкта pizzaPalace використовує this
-// Виклик pizzaPalace.order("Smoked") повертає рядок "Order accepted, preparing «Smoked» pizza"
-// Виклик pizzaPalace.order("Four meats") повертає рядок "Order accepted, preparing «Four meats» pizza"
-// Виклик pizzaPalace.order("Big Mike") повертає рядок "Sorry, there is no pizza named «Big Mike»"
-// Виклик pizzaPalace.order("Viennese") повертає рядок "Sorry, there is no pizza named «Viennese»"
+// Після оголошення об'єкта ми додали виклики методів у тій послідовності, в якій твій код перевірятимуть тести. Будь ласка, нічого там не змінюй.
+
+// Оголошена змінна customer
+// Значення змінної customer - це об'єкт з властивостями і методами
+// Виклик customer.getDiscount() повертає поточне значення властивості discount
+// Виклик customer.setDiscount(0.15) оновлює значення властивості discount
+// Виклик customer.getBalance() повертає поточне значення властивості balance.
+// Виклик customer.getOrders() повертає поточне значення властивості orders
+// Виклик customer.addOrder(5000, "Steak") додає "Steak" в масив значень властивості orders і оновлює баланс
+// Метод getBalance об'єкта customer використовує this
+// Метод getDiscount об'єкта customer використовує this
+// Метод setDiscount об'єкта customer використовує this
+// Метод getOrders об'єкта customer використовує this
+// Метод addOrder об'єкта customer використовує this
 
 // Задача
 
-const pizzaPalace = {
-  pizzas: ["Supercheese", "Smoked", "Four meats"],
+const customer = {
+  username: "Mango",
+  balance: 24000,
+  discount: 0.1,
+  orders: ["Burger", "Pizza", "Salad"],
   // Change code below this line
-  checkPizza(pizzaName) {
-    return pizzas.includes(pizzaName);
+  getBalance() {
+    return balance;
   },
-  order(pizzaName) {
-    const isPizzaAvailable = checkPizza(pizzaName);
-
-    if (!isPizzaAvailable) {
-      return `Sorry, there is no pizza named «${pizzaName}»`;
-    }
-
-    return `Order accepted, preparing «${pizzaName}» pizza`;
+  getDiscount() {
+    return discount;
+  },
+  setDiscount(value) {
+    discount = value;
+  },
+  getOrders() {
+    return orders;
+  },
+  addOrder(cost, order) {
+    balance -= cost - cost * discount;
+    orders.push(order);
   },
   // Change code above this line
 };
+
+customer.setDiscount(0.15);
+console.log(customer.getDiscount()); // 0.15
+customer.addOrder(5000, "Steak");
+console.log(customer.getBalance()); // 19750
+console.log(customer.getOrders()); // ["Burger", "Pizza", "Salad", "Steak"]
 
 // Решение
 
-const pizzaPalace = {
-  pizzas: ["Supercheese", "Smoked", "Four meats"],
+const customer = {
+  username: "Mango",
+  balance: 24000,
+  discount: 0.1,
+  orders: ["Burger", "Pizza", "Salad"],
   // Change code below this line
-  checkPizza(pizzaName) {
-    return this.pizzas.includes(pizzaName);
+  getBalance() {
+    return this.balance;
   },
-  order(pizzaName) {
-    const isPizzaAvailable = this.checkPizza(pizzaName);
-
-    if (!isPizzaAvailable) {
-      return `Sorry, there is no pizza named «${pizzaName}»`;
-    }
-
-    return `Order accepted, preparing «${pizzaName}» pizza`;
+  getDiscount() {
+    return this.discount;
+  },
+  setDiscount(value) {
+    this.discount = value;
+  },
+  getOrders() {
+    return this.orders;
+  },
+  addOrder(cost, order) {
+    this.balance -= cost - cost * this.discount;
+    this.orders.push(order);
   },
   // Change code above this line
 };
+
+customer.setDiscount(0.15);
+console.log(customer.getDiscount()); // 0.15
+customer.addOrder(5000, "Steak");
+console.log(customer.getBalance()); // 19750
+console.log(customer.getOrders()); // ["Burger", "Pizza", "Salad", "Steak"]
