@@ -1,25 +1,40 @@
-// Завдання 39/48
-// Онлайн бібіліотеці необхідно відображати книги, відсортовані за датою видання, за її зростанням або спаданням. Доповни код таким чином, щоб у змінній ascendingReleaseDates вийшла копія масиву releaseDates, відсортована за зростанням, а у змінній descendingReleaseDates - копія, відсортована за спаданням.
+// Завдання 40/48
+// Онлайн бібіліотеці необхідно відображати книги, відсортовані за автором, в алфавітному і зворотному алфавітному порядку. Доповни код таким чином, щоб у змінній authorsInAlphabetOrder вийшла копія масиву authors, відсортована за алфавітом, а у змінній authorsInReversedOrder - копія, відсортована у зворотному алфавітному порядку.
 
-// Оголошена змінна releaseDates
-// Значення змінної releaseDates - це масив [2016, 1967, 2008, 1984, 1973, 2012, 1997]
-// Оголошена змінна ascendingReleaseDates
-// Значення змінної ascendingReleaseDates - це масив [1967, 1973, 1984, 1997, 2008, 2012, 2016]
+// Оголошена змінна authors
+// Значення змінної authors - це масив ["Tanith Lee", "Bernard Cornwell", "Robert Sheckley", "Fyodor Dostoevsky", "Howard Lovecraft"]
+// Оголошена змінна authorsInAlphabetOrder
+// Значення змінної authorsInAlphabetOrder - це масив ["Bernard Cornwell", "Fyodor Dostoevsky", "Howard Lovecraft", "Robert Sheckley", "Tanith Lee"]
+// Оголошена змінна authorsInReversedOrder
+// Значення змінної authorsInReversedOrder - це масив ["Tanith Lee", "Robert Sheckley", "Howard Lovecraft", "Fyodor Dostoevsky", "Bernard Cornwell"]
+// Використаний метод sort()
 
 //Задача
 
-const releaseDates = [2016, 1967, 2008, 1984, 1973, 2012, 1997];
+const authors = [
+  "Tanith Lee",
+  "Bernard Cornwell",
+  "Robert Sheckley",
+  "Fyodor Dostoevsky",
+  "Howard Lovecraft",
+];
 // Change code below this line
 
-const ascendingReleaseDates = releaseDates;
+const authorsInAlphabetOrder = authors;
 
-const descendingReleaseDates = releaseDates;
+const authorsInReversedOrder = authors;
 
 //Решение
 
-const releaseDates = [2016, 1967, 2008, 1984, 1973, 2012, 1997];
+const authors = [
+  "Tanith Lee",
+  "Bernard Cornwell",
+  "Robert Sheckley",
+  "Fyodor Dostoevsky",
+  "Howard Lovecraft",
+];
 // Change code below this line
 
-const ascendingReleaseDates = [...releaseDates].sort((a, b) => a - b);
+const authorsInAlphabetOrder = [...authors].sort((a, b) => a.localeCompare(b));
 
-const descendingReleaseDates = [...releaseDates].sort((a, b) => b - a);
+const authorsInReversedOrder = [...authors].sort((a, b) => b.localeCompare(a));
