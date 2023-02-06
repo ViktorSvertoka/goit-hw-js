@@ -1,11 +1,12 @@
-// Завдання 47/48
-// Доповни функцію getSortedFriends(users) таким чином, щоб вона повертала масив унікальних імен друзів (властивість friends), відсортований за алфавітом.
+// Завдання 48/48
+// Доповни функцію getTotalBalanceByGender(users, gender) таким чином, щоб вона повертала загальний баланс користувачів (властивість balance), стать яких (властивість gender) збігається зі значенням параметра gender.
 
-// Оголошена змінна getSortedFriends
-// Змінній getSortedFriends присвоєна стрілочна функція з параметром (users)
+// Оголошена змінна getTotalBalanceByGender
+// Змінній getTotalBalanceByGender присвоєна стрілочна функція з параметрами (users, gender)
 // У тілі функції використовується ланцюжок методів в правильному порядку
 // Значення параметра users не змінюється
-// Виклик функції із зазначеним масивом користувачів повертає масив ["Adrian Cross", "Aisha Tran", "Briana Decker", "Eddie Strong", "Goldie Gentry", "Jacklyn Lucas", "Jordan Sampson", "Linda Chapman", "Marilyn Mcintosh", "Naomi Buckner", "Padilla Garrison", "Sharron Pace", "Solomon Fokes"]
+// Якщо значення параметра gender - це рядок "male", функція повертає число 12053
+// Якщо значення параметра gender - це рядок "female", функція повертає число 8863
 // Виклик функції з випадковими, але валідними аргументами, повертає правильне значення
 
 // Задача
@@ -14,12 +15,7 @@ const getSortedFriends = (users) => {};
 
 // Решение
 
-const getSortedFriends = (users) => {
-  return users
-    .reduce((allFriends, user) => {
-      allFriends.push(...user.friends);
-      return allFriends;
-    }, [])
-    .filter((friend, index, arr) => arr.indexOf(friend) === index)
-    .sort();
-};
+const getTotalBalanceByGender = (users, gender) =>
+  users
+    .filter((user) => user.gender === gender)
+    .reduce((acc, user) => acc + user.balance, 0);
