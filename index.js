@@ -1,21 +1,49 @@
-// Завдання 48/48
-// Доповни функцію getTotalBalanceByGender(users, gender) таким чином, щоб вона повертала загальний баланс користувачів (властивість balance), стать яких (властивість gender) збігається зі значенням параметра gender.
+// Завдання 1/20
+// Виконай рефакторинг методів об'єкта pizzaPalace, розставивши відсутні this в місцях звернення до властивостей і методів об'єкта.
 
-// Оголошена змінна getTotalBalanceByGender
-// Змінній getTotalBalanceByGender присвоєна стрілочна функція з параметрами (users, gender)
-// У тілі функції використовується ланцюжок методів в правильному порядку
-// Значення параметра users не змінюється
-// Якщо значення параметра gender - це рядок "male", функція повертає число 12053
-// Якщо значення параметра gender - це рядок "female", функція повертає число 8863
-// Виклик функції з випадковими, але валідними аргументами, повертає правильне значення
+// Метод checkPizza об'єкта pizzaPalace використовує this.
+// Метод order об'єкта pizzaPalace використовує this
+// Виклик pizzaPalace.order("Smoked") повертає рядок "Order accepted, preparing «Smoked» pizza"
+// Виклик pizzaPalace.order("Four meats") повертає рядок "Order accepted, preparing «Four meats» pizza"
+// Виклик pizzaPalace.order("Big Mike") повертає рядок "Sorry, there is no pizza named «Big Mike»"
+// Виклик pizzaPalace.order("Viennese") повертає рядок "Sorry, there is no pizza named «Viennese»"
 
 // Задача
 
-const getSortedFriends = (users) => {};
+const pizzaPalace = {
+  pizzas: ["Supercheese", "Smoked", "Four meats"],
+  // Change code below this line
+  checkPizza(pizzaName) {
+    return pizzas.includes(pizzaName);
+  },
+  order(pizzaName) {
+    const isPizzaAvailable = checkPizza(pizzaName);
+
+    if (!isPizzaAvailable) {
+      return `Sorry, there is no pizza named «${pizzaName}»`;
+    }
+
+    return `Order accepted, preparing «${pizzaName}» pizza`;
+  },
+  // Change code above this line
+};
 
 // Решение
 
-const getTotalBalanceByGender = (users, gender) =>
-  users
-    .filter((user) => user.gender === gender)
-    .reduce((acc, user) => acc + user.balance, 0);
+const pizzaPalace = {
+  pizzas: ["Supercheese", "Smoked", "Four meats"],
+  // Change code below this line
+  checkPizza(pizzaName) {
+    return this.pizzas.includes(pizzaName);
+  },
+  order(pizzaName) {
+    const isPizzaAvailable = this.checkPizza(pizzaName);
+
+    if (!isPizzaAvailable) {
+      return `Sorry, there is no pizza named «${pizzaName}»`;
+    }
+
+    return `Order accepted, preparing «${pizzaName}» pizza`;
+  },
+  // Change code above this line
+};
