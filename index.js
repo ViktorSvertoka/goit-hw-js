@@ -1,103 +1,92 @@
-// Завдання 14/20
-// Виконай рефакторинг класу StringBuilder, зробивши властивість value приватною.
+// Завдання 15/20
+// Виконай рефакторинг класу Car. Зроби властивості model і price приватними, а також #brand. Стандартизуй публічний інтерфейс класу, замінивши вже оголошені методи на гетери та сетери brand, model і price, для взаємодії з приватними властивостями.
 
-// Під коментарем ми додали ініціалізацію екземпляра і виклики методів у тій послідовності, в якій твій код перевірятимуть тести. Будь ласка, нічого там не змінюй.
-
-// Оголошений клас StringBuilder
-
-// Властивість value в класі StringBuilder оголошена приватною
-
-// В класі StringBuilder оголошений метод getValue
-
-// В класі StringBuilder оголошений метод padEnd
-
-// В класі StringBuilder оголошений метод padStart
-
-// В класі StringBuilder оголошений метод padBoth
-
-// В результаті виклику new StringBuilder('.') значення змінної builder - це об'єкт
-
-// Об'єкт builder не містить властивості value
-
-// Перший виклик builder.getValue(), відразу після ініціалізації екземпляра, повертає рядок .
-
-// Другий виклик builder.getValue(), після виклику builder.padStart("^"), повертає рядок ^.
-
-// Третій виклик builder.getValue(), після виклику builder.padEnd("^"), повертає рядок ^.^
-
-// Четвертий виклик builder.getValue(), після виклику builder.padBoth("="), повертає рядок =^.^=
+// Оголошений клас Car
+// В класі Car оголошена приватна властивість brand
+// В класі Car оголошена приватна властивість model
+// В класі Car оголошена приватна властивість price
+// Конструктор класу приймає об'єкт з властивостями brand, model і price
+// В класі Car оголошений гетер brand
+// В класі Car оголошений сетер brand
+// В класі Car оголошений гетер model
+// В класі Car оголошений сетер model
+// В класі Car оголошений гетер price
+// В класі Car оголошений сетер price
 
 // Задача
 
-class StringBuilder {
+class Car {
   // Change code below this line
+  #brand;
 
-  constructor(initialValue) {
-    this.value = initialValue;
+  constructor({ brand, model, price }) {
+    this.#brand = brand;
+    this.model = model;
+    this.price = price;
   }
 
-  getValue() {
-    return this.value;
+  getBrand() {
+    return this.#brand;
   }
 
-  padEnd(str) {
-    this.value += str;
+  changeBrand(newBrand) {
+    this.#brand = newBrand;
   }
 
-  padStart(str) {
-    this.value = str + this.value;
+  getModel() {
+    return this.model;
   }
 
-  padBoth(str) {
-    this.padStart(str);
-    this.padEnd(str);
+  updateModel(newModel) {
+    this.model = newModel;
   }
+
+  getPrice() {
+    return this.price;
+  }
+
+  setPrice(newPrice) {
+    this.price = newPrice;
+  }
+  // Change code above this line
 }
-
-// Change code above this line
-const builder = new StringBuilder(".");
-console.log(builder.getValue()); // "."
-builder.padStart("^");
-console.log(builder.getValue()); // "^."
-builder.padEnd("^");
-console.log(builder.getValue()); // "^.^"
-builder.padBoth("=");
-console.log(builder.getValue()); // "=^.^="
 
 // Решение
 
-class StringBuilder {
+class Car {
   // Change code below this line
-  #value;
+  #brand;
+  #model;
+  #price;
 
-  constructor(initialValue) {
-    this.#value = initialValue;
+  constructor({ brand, model, price }) {
+    this.#brand = brand;
+    this.#model = model;
+    this.#price = price;
   }
 
-  getValue() {
-    return this.#value;
+  get brand() {
+    return this.#brand;
   }
 
-  padEnd(str) {
-    this.#value += str;
+  set brand(newBrand) {
+    this.#brand = newBrand;
   }
 
-  padStart(str) {
-    this.#value = str + this.#value;
+  get model() {
+    return this.#model;
   }
 
-  padBoth(str) {
-    this.padStart(str);
-    this.padEnd(str);
+  set model(newModel) {
+    this.#model = newModel;
   }
+
+  get price() {
+    return this.#price;
+  }
+
+  set price(newPrice) {
+    this.#price = newPrice;
+  }
+  // Change code above this line
 }
-
-// Change code above this line
-const builder = new StringBuilder(".");
-console.log(builder.getValue()); // "."
-builder.padStart("^");
-console.log(builder.getValue()); // "^."
-builder.padEnd("^");
-console.log(builder.getValue()); // "^.^"
-builder.padBoth("=");
-console.log(builder.getValue()); // "=^.^="
