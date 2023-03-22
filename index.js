@@ -93,4 +93,6 @@
 // console.log(mango.isBlacklisted("mango@mail.com")); // false
 // console.log(mango.isBlacklisted("poly@mail.com")); // true
 
-let total = 56;
+// let total = 56;
+
+//?----------------------------------------------------------------------
